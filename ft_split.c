@@ -3,84 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 19:28:01 by segarcia          #+#    #+#             */
-/*   Updated: 2021/12/08 23:19:11 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:47:52 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/28 14:09:12 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <unistd.h>
 
-int	is_separator(char const *s, char c, size_t i)
+int	count_words(const char *str, char c)
 {
-	return (i > 0 && s[i + 1] && s[i - 1] != c
-		&& s[i] == c && s[i + 1] != c);
-}
+	int words;
+	int ckpt;
 
-int	count_words(char const *s, char c)
-{
-	size_t	i;
-	size_t	words;
-
-	i = 0;
 	words = 0;
-	while (s[i])
+	ckpt = 0;
+	// Chekpoint refers to a word count after c char encounter
+	while (*str)
 	{
-		if (is_separator(s, c, i))
+		if (*str != c && ckpt == 0)
+		{
+			ckpt = 1;
 			words++;
-		i++;
+		}
+		else if (*str == c)
+			ckpt = 0;
+		str++;
 	}
-	if (words > 0)
-		words++;
 	return (words);
 }
 
-int	count_chars(char const *s, char c, size_t word_index)
+int count_chars(const char *str, char c, int word_count)
 {
-	size_t	i;
-	size_t	words;
-	int		chars;
+	int words;
+	int chars;
+	int ckpt;
 
-	i = 0;
 	words = 0;
 	chars = 0;
-	while (s[i])
+	ckpt = 0;
+
+	while (*str)
 	{
-		if (is_separator(s, c, i))
-			words++;
-		else
+		if (*str != c && ckpt == 0)
 		{
-			if (s[i] != c && words == word_index)
-				chars++;
+			ckpt = 1;
+			words++;
+			if (words == word_count)
+			{
+				while (*str !=c)
+				{
+					chars++;
+					str++;
+				}
+				return (chars);
+			}
 		}
-		i++;
+		else if (*str == c)
+			ckpt = 0;
+		str++;
 	}
 	return (chars);
 }
 
-void	ft_strlcpy_sp(char *dst, const char *src, size_t size, int shift)
+void	write_words(char *dst, const char *str, char c, int word_count)
 {
-	size_t	i;
-	size_t	j;
+	int words;
+	int chars;
+	int ckpt;
 
-	i = 0;
-	j = 0;
-	if (size > 0)
+	words = 0;
+	chars = 0;
+	ckpt = 0;
+
+	while (*str)
 	{
-		while (src[i])
+		if (*str != c && ckpt == 0)
 		{
-			while (i >= (size_t)shift - 1  && j < size)
+			ckpt = 1;
+			words++;
+			if (words == word_count)
 			{
-				dst[j] = src[i];
-				j++;
+				while (*str !=c)
+				{
+					*dst = *str;
+					chars++;
+					str++;
+					dst++;
+				}
+				dst = 0;
 			}
-			i++;
 		}
-		dst[i] = '\0';
+		else if (*str == c)
+			ckpt = 0;
+		str++;
 	}
 }
+
 
 char	**ft_split(char const *s, char c)
 {
@@ -89,23 +111,134 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		chars;
 	int		shift;
+	int 	freec;
 
+	freec = 0;
 	words = count_words(s, c);
-	res = (char **)malloc(sizeof(char *) * (words));
+	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
-		return (NULL);                   
+		return (NULL);
 	i = 0;
 	shift = 0;
 	while (i < words)
 	{
 		chars = count_chars(s, c, i);
-		shift += chars;
-		printf("word[%i] - chars[%i]\n", i + 1, chars);
-		printf("count: %i\n", shift);
-		res[i] = (char *)malloc(sizeof(char) * (chars));
-		ft_strlcpy_sp(res[i], s, chars, shift);
+		res[i] = (char *)malloc(sizeof(char) * (chars + 1));
+		write_words(res[i], s, c, i + 1);
+		if (!res[i])
+		{
+
+			while(res[freec])
+			{
+				free(res[i]);
+				freec++;
+			}
+			free(res);
+		}
 		i++;
 	}
 	res[i] = 0;
 	return (res);
 }
+
+
+// void	ft_print_result(char const *s)
+// {
+// 	int		len;
+
+// 	len = 0;
+// 	while (s[len])
+// 		len++;
+// 	write(1, s, len);
+// }
+
+// int		main(int argc, const char *argv[])
+// {
+// 	char	**tabstr;
+// 	int		i;
+// 	int		arg;
+
+// 	alarm(5);
+// 	if (argc == 1)
+// 		return (0);
+// 	i = 0;
+// 	if ((arg = atoi(argv[1])) == 1)
+// 	{
+// 		if (!(tabstr = ft_split("          ", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 2)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 3)
+// 	{
+// 		if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 4)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 5)
+// 	{
+// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
+// 			ft_print_result("NULL");
+// 		else
+// 		{
+// 			while (tabstr[i] != NULL)
+// 			{
+// 				ft_print_result(tabstr[i]);
+// 				write(1, "\n", 1);
+// 				i++;
+// 			}
+// 		}
+// 	}
+// 	else if (arg == 6)
+// 	{
+// 		if (!(tabstr = ft_split("", 'z')))
+// 			ft_print_result("NULL");
+// 		else
+// 			if (!tabstr[0])
+// 				ft_print_result("ok\n");
+// 	}
+// 	return (0);
+// }

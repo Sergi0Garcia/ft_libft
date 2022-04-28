@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 22:09:37 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/23 23:24:54 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:38:01 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:38:04 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

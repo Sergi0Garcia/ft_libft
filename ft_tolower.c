@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 20:12:00 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/22 22:46:35 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:49:16 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:49:18 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

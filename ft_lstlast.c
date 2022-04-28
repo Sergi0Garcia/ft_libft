@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 21:15:29 by segarcia          #+#    #+#             */
-/*   Updated: 2021/12/02 02:00:29 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:39:40 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:41:14 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 02:26:02 by segarcia          #+#    #+#             */
-/*   Updated: 2021/12/02 02:33:25 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:39:19 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:39:20 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

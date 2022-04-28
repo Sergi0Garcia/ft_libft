@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 22:27:43 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/23 23:26:05 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:38:48 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:38:52 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

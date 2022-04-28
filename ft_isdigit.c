@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 21:56:42 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/23 23:11:24 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:46:03 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:46:06 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

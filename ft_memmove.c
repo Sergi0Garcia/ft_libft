@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 22:38:56 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/25 20:59:41 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:41:58 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:43:59 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

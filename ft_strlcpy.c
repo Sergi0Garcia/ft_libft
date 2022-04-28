@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 22:46:41 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/29 20:15:12 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:44:27 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:44:28 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

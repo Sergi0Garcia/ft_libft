@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:33:37 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/26 20:43:03 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:48:17 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:48:19 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

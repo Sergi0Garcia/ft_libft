@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 18:46:27 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/29 20:37:36 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:48:48 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:48:52 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

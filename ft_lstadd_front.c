@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 20:55:38 by segarcia          #+#    #+#             */
-/*   Updated: 2021/12/08 21:13:12 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:39:11 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:39:15 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

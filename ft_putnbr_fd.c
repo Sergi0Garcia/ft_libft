@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 23:23:02 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/26 20:00:30 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:47:21 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:47:24 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

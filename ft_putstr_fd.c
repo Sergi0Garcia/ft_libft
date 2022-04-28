@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 23:12:42 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/25 23:19:29 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 12:47:32 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 12:47:36 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

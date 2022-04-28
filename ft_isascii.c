@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segarcia <segarcia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 22:19:58 by segarcia          #+#    #+#             */
-/*   Updated: 2021/11/23 23:11:20 by segarcia         ###   ########.fr       */
+/*   Created: 2022/04/20 11:38:18 by segarcia          #+#    #+#             */
+/*   Updated: 2022/04/20 11:38:22 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
