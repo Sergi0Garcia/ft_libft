@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:41:58 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 11:43:59 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/05 14:08:47 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	if (src < dst)
 	{

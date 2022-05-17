@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:48:36 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 12:48:42 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:06:00 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	c2;
 
+	c2 = (char)c;
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == c2)
 			return ((char *)(s + i));
 		i--;
 	}

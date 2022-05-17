@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:38:56 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 11:38:58 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/10 13:29:03 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,26 @@ static int	n_len(unsigned int n)
 	return (len);
 }
 
-static void	handle_zero(size_t *i, char *str)
+static void	validate_sign(int n, unsigned int *num, int *is_neg, int *len)
 {
-	*i = *i + 1;
-	str[0] = '0';
+	*is_neg = 0;
+	*len = 0;
+	*num = n;
+	if (n < 0)
+	{
+		*num = n * -1;
+		*is_neg = 1;
+	}
+	*len = n_len(*num);
+	if (n == 0)
+		*len = 1;
 }
 
-static void	handle_negative(unsigned int *num, int *is_neg, char *str)
+static char	*handle_zero(char *str)
 {
-	str[0] = '-';
-	*num = -(*num);
-	*is_neg = 1;
+	str[0] = '0';
+	str[1] = 0;
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -46,23 +55,21 @@ char	*ft_itoa(int n)
 	int				is_neg;
 	unsigned int	num;
 
-	num = n;
-	str = (char *)malloc(12);
+	i = 0;
+	validate_sign(n, &num, &is_neg, &len);
+	str = (char *)malloc(len + is_neg + 1);
 	if (!str)
 		return (NULL);
-	i = 0;
-	is_neg = 0;
 	if (n == 0)
-		handle_zero(&i, str);
-	if (n < 0)
-		handle_negative(&num, &is_neg, str);
-	len = n_len(num);
+		return (handle_zero(str));
+	if (is_neg)
+		str[0] = '-';
 	while (num != 0)
 	{
-		str[len - i -!is_neg] = (num % 10) + '0';
+		str[len - i - !is_neg] = (num % 10) + '0';
 		num = num / 10;
 		i++;
 	}
-	str[i + is_neg] = 0;
+	str[len + is_neg] = 0;
 	return (str);
 }

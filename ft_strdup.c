@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:43:49 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 12:43:53 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:18:33 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s1)
 	size_t	size;
 	size_t	i;
 
-	if (!s1)
-		return (NULL);
 	size = ft_strlen((char *)s1);
 	cpy = (char *)malloc(sizeof(char) * (size + 1));
 	if (!cpy)
@@ -30,6 +28,6 @@ char	*ft_strdup(const char *s1)
 		cpy[i] = s1[i];
 		i++;
 	}
-	cpy[i] = 0;
+	cpy[i] = '\0';
 	return (cpy);
 }

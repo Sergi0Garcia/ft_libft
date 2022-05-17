@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:30:28 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 11:30:33 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/05 14:02:44 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
-	if (!s || n <= 0)
-		return ;
 	i = 0;
 	while (i < n)
 	{

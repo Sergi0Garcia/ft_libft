@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:48:48 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/20 12:48:52 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:54:14 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	start = 0;
 	i = 0;
+	if (!s1)
+		return (NULL);
 	while (s1[i] && is_in_set(s1[i], set))
 		i++;
 	start = i;

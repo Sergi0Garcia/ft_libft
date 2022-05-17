@@ -6,239 +6,95 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:47:52 by segarcia          #+#    #+#             */
-/*   Updated: 2022/04/28 14:09:12 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/17 13:56:28 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
 
-int	count_words(const char *str, char c)
+static int	engine(const char *str, char c, int *ckpt)
 {
-	int words;
-	int ckpt;
+	int	flag;
+
+	flag = 0;
+	if (*str != c && *ckpt == 0)
+	{
+		*ckpt = 1;
+		flag = 1;
+	}
+	else if (*str == c)
+		*ckpt = 0;
+	return (flag);
+}
+
+static int	count_words(const char *str, char c)
+{
+	int	words;
+	int	ckpt;
 
 	words = 0;
 	ckpt = 0;
-	// Chekpoint refers to a word count after c char encounter
 	while (*str)
 	{
-		if (*str != c && ckpt == 0)
-		{
-			ckpt = 1;
+		if (engine(str, c, &ckpt))
 			words++;
-		}
-		else if (*str == c)
-			ckpt = 0;
 		str++;
 	}
 	return (words);
 }
 
-int count_chars(const char *str, char c, int word_count)
+static int	count_chars(char **res, const char **str, char c, int word_index)
 {
-	int words;
-	int chars;
-	int ckpt;
+	int	i;
 
-	words = 0;
-	chars = 0;
-	ckpt = 0;
-
-	while (*str)
-	{
-		if (*str != c && ckpt == 0)
-		{
-			ckpt = 1;
-			words++;
-			if (words == word_count)
-			{
-				while (*str !=c)
-				{
-					chars++;
-					str++;
-				}
-				return (chars);
-			}
-		}
-		else if (*str == c)
-			ckpt = 0;
-		str++;
-	}
-	return (chars);
+	i = 0;
+	while (**str && **str == c)
+		(*str)++;
+	while (str[0][i] && str[0][i] != c)
+		i++;
+	res[word_index] = ft_substr(*str, 0, i);
+	if (!res[word_index])
+		return (0);
+	*str = *str + i + 1;
+	return (1);
 }
 
-void	write_words(char *dst, const char *str, char c, int word_count)
+static void	free_words(char ***str, int i)
 {
-	int words;
-	int chars;
-	int ckpt;
+	int	j;
 
-	words = 0;
-	chars = 0;
-	ckpt = 0;
-
-	while (*str)
+	j = 0;
+	while (j < i)
 	{
-		if (*str != c && ckpt == 0)
-		{
-			ckpt = 1;
-			words++;
-			if (words == word_count)
-			{
-				while (*str !=c)
-				{
-					*dst = *str;
-					chars++;
-					str++;
-					dst++;
-				}
-				dst = 0;
-			}
-		}
-		else if (*str == c)
-			ckpt = 0;
-		str++;
+		free(str[0][j]);
+		j++;
 	}
+	free(*str);
+	*str = NULL;
 }
-
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		words;
 	int		i;
-	int		chars;
-	int		shift;
-	int 	freec;
 
-	freec = 0;
+	if (!s)
+		return (NULL);
+	i = 0;
 	words = count_words(s, c);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
-	shift = 0;
 	while (i < words)
 	{
-		chars = count_chars(s, c, i);
-		res[i] = (char *)malloc(sizeof(char) * (chars + 1));
-		write_words(res[i], s, c, i + 1);
-		if (!res[i])
+		if (!count_chars(res, &s, c, i))
 		{
-
-			while(res[freec])
-			{
-				free(res[i]);
-				freec++;
-			}
-			free(res);
+			free_words(&res, i);
+			return (NULL);
 		}
 		i++;
 	}
-	res[i] = 0;
+	res[words] = NULL;
 	return (res);
 }
-
-
-// void	ft_print_result(char const *s)
-// {
-// 	int		len;
-
-// 	len = 0;
-// 	while (s[len])
-// 		len++;
-// 	write(1, s, len);
-// }
-
-// int		main(int argc, const char *argv[])
-// {
-// 	char	**tabstr;
-// 	int		i;
-// 	int		arg;
-
-// 	alarm(5);
-// 	if (argc == 1)
-// 		return (0);
-// 	i = 0;
-// 	if ((arg = atoi(argv[1])) == 1)
-// 	{
-// 		if (!(tabstr = ft_split("          ", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 2)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 3)
-// 	{
-// 		if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 4)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 5)
-// 	{
-// 		if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
-// 			ft_print_result("NULL");
-// 		else
-// 		{
-// 			while (tabstr[i] != NULL)
-// 			{
-// 				ft_print_result(tabstr[i]);
-// 				write(1, "\n", 1);
-// 				i++;
-// 			}
-// 		}
-// 	}
-// 	else if (arg == 6)
-// 	{
-// 		if (!(tabstr = ft_split("", 'z')))
-// 			ft_print_result("NULL");
-// 		else
-// 			if (!tabstr[0])
-// 				ft_print_result("ok\n");
-// 	}
-// 	return (0);
-// }
