@@ -6,12 +6,11 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:48:48 by segarcia          #+#    #+#             */
-/*   Updated: 2022/05/06 11:54:14 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/20 12:38:31 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 static int	is_in_set(char c, char const *set)
 {
