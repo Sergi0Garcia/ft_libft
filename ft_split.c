@@ -6,13 +6,13 @@
 /*   By: segarcia <segarcia@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:47:52 by segarcia          #+#    #+#             */
-/*   Updated: 2022/05/17 13:56:28 by segarcia         ###   ########.fr       */
+/*   Updated: 2022/05/21 19:06:46 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	engine(const char *str, char c, int *ckpt)
+static int	flag_ckpt(const char *str, char c, int *ckpt)
 {
 	int	flag;
 
@@ -36,14 +36,14 @@ static int	count_words(const char *str, char c)
 	ckpt = 0;
 	while (*str)
 	{
-		if (engine(str, c, &ckpt))
+		if (flag_ckpt(str, c, &ckpt))
 			words++;
 		str++;
 	}
 	return (words);
 }
 
-static int	count_chars(char **res, const char **str, char c, int word_index)
+static int	word_setter(char **res, const char **str, char c, int word_index)
 {
 	int	i;
 
@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (i < words)
 	{
-		if (!count_chars(res, &s, c, i))
+		if (!word_setter(res, &s, c, i))
 		{
 			free_words(&res, i);
 			return (NULL);
